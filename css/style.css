@@ -1,0 +1,86 @@
+body{
+  background-image:url(../img/vintage-concrete.png);
+  overflow-x:hidden;
+}
+
+header{
+  width:100%;
+  height:100px;
+  margin: none;
+  background: rgba(255,255,255,0.7);
+  position:absolute;
+  top:0;
+  left:0;
+}
+
+#content{
+  width:100%;
+  height :1200px;
+  display:flex;
+  justify-content: space-around;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  position:relative;
+  top:100px;
+}
+
+#menu{
+  width:15%;
+  height:600px;
+  border: 1px solid black;
+  background: rgba(255,255,255,0.5);
+  font-family: 'Pinyon Script', cursive;
+}
+
+#menu-title{
+  font-size: 30px;
+  text-align:center;
+}
+
+a{
+  font-size: 22px;
+  text-align:left;
+}
+
+#read-area{
+  width:80%;
+  height:1200px;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#chapters{
+  width:100%;
+  height:700px;
+  border:1px solid black;
+  padding:10px 10px 10px 10px;
+  background: rgba(255,255,255,0.5);
+}
+
+#chapter-title{
+  font-family: 'Goudy Bookletter 1911', serif;
+  font-size: 40px;
+  text-align:center;
+}
+
+#chapter-content{
+  font-family: 'Goudy Bookletter 1911', serif;
+}
+
+#commentary{
+  width:100%;
+  height:460px;
+  border: 1px solid black;
+  background: rgba(255,255,255,0.5);
+  display:none;
+}
+
+footer{
+  width:100%;
+  height:200px;
+  position:absolute;
+  left:0;
+  top:1400px;
+  background: rgba(255,255,255,0.7);
+}
