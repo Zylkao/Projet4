@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <title>Blog lecture</title>
-		<link rel="stylesheet" href="../css/style.css">
+		<link rel="stylesheet" href="public/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Pinyon+Script" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Goudy+Bookletter+1911" rel="stylesheet">
 		<meta name="Blog lecture" content="Site du Projet 4 D'Openclassroom:Blog lecture" />
@@ -38,7 +38,7 @@ Pellentesque sit amet erat vel lorem molestie elementum nec non dolor. Donec rho
           </p>
         </div>
 
-        <div id="commentary">
+        <div id="comments">
         </div>
       </div>
     </section>
