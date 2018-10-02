@@ -2,6 +2,9 @@
 
 <?php ob_start(); ?>
 
+<header>
+  <a href='index.php?action=adminPage'>Administration</a>
+</header>
 
 <section id="content">
   <?php include('menu.php');?>

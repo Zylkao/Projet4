@@ -8,7 +8,7 @@ function welcome()
     $postManager = new \zylkaôme\OC_Projet4\Model\PostManager();
     $posts = $postManager->getPosts();
 
-    require('view\frontend\main_page.php');
+    require('view/frontend/main_page.php');
 }
 
 function post()

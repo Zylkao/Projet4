@@ -1,5 +1,4 @@
 <?php
-
 namespace zylkaôme\OC_Projet4\model;
 
 require_once("model/Manager.php");
@@ -37,5 +36,25 @@ class PostManager extends Manager
     $affectedLines = $post->execute(array($chapter_title,$content,$post_date));
 
     return $affectedLines;
+  }
+
+  public function modifyContent($id,$chapter_title,$content)
+  {
+    $db = $this -> dbConnect();
+    $post = $db->prepare('UPDATE post
+      SET chapter_title = "'. $chapter_title .'", content= "'. $content .'"
+      WHERE id = "'. $id .'"');
+    $affectedLines = $post->execute(array($id,$chapter_title,$content));
+
+    return $affectedLines;
+  }
+
+  public function deleteContent($id)
+  {
+    $db= $this -> dbConnect();
+    $post = $db->prepare('DELETE FROM post WHERE id = "'. $id .'"');
+    $post->execute(array($id));
+
+    return $post;
   }
 }

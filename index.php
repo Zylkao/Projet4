@@ -1,5 +1,6 @@
 <?php
 require('controller/frontend.php');
+require('controller/backend.php');
 
 try {
     if (isset($_GET['action'])) {
@@ -16,8 +17,8 @@ try {
         }
         elseif ($_GET['action'] == 'addComment') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
-                if (!empty($_POST['author']) && !empty($_POST['comment'])) {
-                    addComment($_GET['id'], $_POST['author'], $_POST['comment']);
+                if (!empty($_POST['author']) && !empty($_POST['comment_content'])) {
+                    addComment($_GET['id'], $_POST['author'], $_POST['comment_content']);
                 }
                 else {
                     throw new Exception('Tous les champs ne sont pas remplis !');
@@ -27,6 +28,44 @@ try {
                 throw new Exception('Aucun identifiant de billet envoyé');
             }
         }
+        elseif(isset($_GET['action'])){
+          if ($_GET['action'] == 'adminPage'){
+              adminPage();
+          }
+          elseif ($_GET['action'] == 'adminPost') {
+              if (isset($_GET['id']) && $_GET['id'] > 0) {
+                  adminPost();
+              }
+              else {
+                  throw new Exception('Aucun identifiant de billet envoyé(Admin)');
+              }
+          }
+          elseif ($_GET['action'] == 'modifyPost') {
+              if (isset($_GET['id']) && $_GET['id'] > 0) {
+                  if (!empty($_POST['chapter_title']) && !empty($_POST['content'])) {
+                      modifyPost($_GET['id'], $_POST['chapter_title'], $_POST['content']);
+                  }
+                  else {
+                      throw new Exception('Tous les champs ne sont pas remplis (admin)!');
+                  }
+              }
+              else {
+                  throw new Exception('Aucun identifiant de billet envoyé');
+              }
+          }
+          elseif ($_GET['action'] == 'deletePost') {
+              if (isset($_GET['id']) && $_GET['id'] > 0) {
+                deletePost($_GET['id']);
+              }
+              else {
+                throw new Exception ('Suppression refusé');
+              }
+          }
+          else {
+              throw new Exception('Accèes Admin Refusé');
+          }
+        }
+
     }
     else {
         welcome();
