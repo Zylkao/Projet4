@@ -3,7 +3,7 @@
 <?php ob_start(); ?>
 
 <header>
-  <a href='index.php?action=adminPage'>Administration</a>
+  <a href='index.php?action=adminPage'> <i class="fas fa-cogs">Administration</i></a>
 </header>
 
 <section id="content">

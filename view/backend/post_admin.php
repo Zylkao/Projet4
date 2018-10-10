@@ -6,12 +6,13 @@
 
 <script>
 tinymce.init({
-selector: '#mytextarea'
+selector: '#mytextarea',
+language: 'fr_FR',
+plugins: "preview",
+menubar: "view",
+toolbar: "preview"
 });
 </script>
-
-<section id="content">
-
 
   <div id="read-area">
     <div id="chapters">
@@ -26,25 +27,26 @@ selector: '#mytextarea'
         </div>
         <div>
           <input type="submit" value="Valider" />
-          <a id="button_cancel" href='index.php?action=adminPage'/> Annuler </a>
+          <a id="button" href='index.php?action=adminPage'/> Annuler </a>
         </div>
       </form>
     </div>
   </div>
 
   <div id="read_comments">
+
     <?php
     while ($comment = $comments->fetch())
     {
       ?>
       <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?></p>
       <p><?= nl2br(htmlspecialchars($comment['comment_content'])) ?></p>
+      <a href="index.php?action=deleteComment&amp;id=<?= $comment['id'] ?>"><i class="fas fa-times"></i></a>
       <?php
     }
 
     ?>
   </div>
-</section>
 
 <?php $content = ob_get_clean(); ?>
 

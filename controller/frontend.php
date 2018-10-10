@@ -22,11 +22,11 @@ function post()
   require('view/frontend/postView.php');
 }
 
-function addComment($postid, $author, $comment_content)
+function addComment($postid, $author, $comment_content,$valid)
 {
   $commentManager = new \zylkaôme\OC_Projet4\Model\CommentManager();
 
-  $affectedLines = $commentManager->postComments($postid, $author, $comment_content);
+  $affectedLines = $commentManager->postComments($postid, $author, $comment_content,$valid);
 
   if ($affectedLines === false) {
     throw new Exception('Impossible d\'ajouter le commentaire !');

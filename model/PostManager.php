@@ -28,12 +28,12 @@ class PostManager extends Manager
     return $post;
   }
 
-  public function postContent($chapter_title,$content,$post_date)
+  public function postContent($id,$chapter_title,$content,$post_date)
   {
     $db = $this -> dbConnect();
-    $post = $db->prepare('INSERT INTO post(chapter_title,content,post_date)
-    VALUES(?,?,NOW())');
-    $affectedLines = $post->execute(array($chapter_title,$content,$post_date));
+    $post = $db->prepare('INSERT INTO post(id,chapter_title,content,post_date)
+    VALUES(?,?,?,NOW())');
+    $affectedLines = $post->execute(array($id,$chapter_title,$content));
 
     return $affectedLines;
   }

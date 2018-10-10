@@ -4,7 +4,7 @@
 
 
 <section id="content">
-  <a href="index.php"> Accueil</a>
+  <a href="index.php"><i class="fa fa-home"> Accueil</i></a>
   <div id="read-area">
     <div id="chapters">
       <h2>

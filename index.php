@@ -40,6 +40,17 @@ try {
                   throw new Exception('Aucun identifiant de billet envoyé(Admin)');
               }
           }
+          elseif ($_GET['action'] == 'addContent'){
+                addContent();
+          }
+          elseif ($_GET['action'] == 'addPost') {
+                  if (!empty($_POST['chapter_title']) && !empty($_POST['content'])) {
+                      addPost($_GET['id'], $_POST['chapter_title'], $_POST['content']);
+                  }
+                  else {
+                      throw new Exception('Tous les champs ne sont pas remplis !(Ajout de chapitre)');
+                  }
+          }
           elseif ($_GET['action'] == 'modifyPost') {
               if (isset($_GET['id']) && $_GET['id'] > 0) {
                   if (!empty($_POST['chapter_title']) && !empty($_POST['content'])) {
@@ -59,6 +70,14 @@ try {
               }
               else {
                 throw new Exception ('Suppression refusé');
+              }
+          }
+          elseif ($_GET['action'] == 'deleteComment') {
+              if (isset($_GET['id']) && $_GET['id'] > 0) {
+                deleteComment($_GET['id']);
+              }
+              else {
+                throw new Exception ('Suppression de commentaire refusé');
               }
           }
           else {
