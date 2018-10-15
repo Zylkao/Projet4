@@ -2,14 +2,6 @@
 
 <?php ob_start(); ?>
 
-<script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=843ek0ws7rct4eii7488xofwwb06qptx990gi2hc0o62hr89"></script>
-
-<script>
-tinymce.init({
-selector: '#mytextarea'
-});
-</script>
-
 <section id="content">
 
 
@@ -32,6 +24,10 @@ selector: '#mytextarea'
     </div>
   </div>
   </section>
+
+  <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=843ek0ws7rct4eii7488xofwwb06qptx990gi2hc0o62hr89"></script>
+
+  <script type="text/javascript" src="public/js/tinyMCE.js" ></script>
 
   <?php $content = ob_get_clean(); ?>
 

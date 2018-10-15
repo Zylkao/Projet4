@@ -4,15 +4,18 @@
 
 
 <section id="content">
-  <a href="index.php"><i class="fa fa-home"> Accueil</i></a>
+  <div id="menu-post">
+    <a href="index.php"><i class="fa fa-home"> Accueil</i></a><br />
+    <?php include('menu.php');?>
+  </div>
   <div id="read-area">
     <div id="chapters">
       <h2>
       <?= htmlspecialchars($post['chapter_title']) ?>
       </h2>
       <p id="chapter-content">
-        <?= nl2br(htmlspecialchars($post['content'])) ?>
-        </br>
+        <?= htmlspecialchars_decode(nl2br(html_entity_decode( $post['content']))) ?>
+      <br />
         <strong> Posté le <?= htmlspecialchars($post['post_date_fr']) ?></strong>
       </p>
     </div>

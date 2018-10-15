@@ -16,6 +16,7 @@ function post()
   $postManager = new \zylkaôme\OC_Projet4\Model\PostManager();
   $commentManager = new \zylkaôme\OC_Projet4\Model\CommentManager();
 
+  $posts = $postManager->getPosts();
   $post = $postManager->getPost($_GET['id']);
   $comments = $commentManager->getComments($_GET['id']);
 

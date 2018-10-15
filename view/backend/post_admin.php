@@ -2,18 +2,7 @@
 
 <?php ob_start(); ?>
 
-<script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=843ek0ws7rct4eii7488xofwwb06qptx990gi2hc0o62hr89"></script>
-
-<script>
-tinymce.init({
-selector: '#mytextarea',
-language: 'fr_FR',
-plugins: "preview",
-menubar: "view",
-toolbar: "preview"
-});
-</script>
-
+<section id="content-modify">
   <div id="read-area">
     <div id="chapters">
       <form action="index.php?action=modifyPost&amp;id=<?= $post['id'] ?>" method="post">
@@ -23,11 +12,11 @@ toolbar: "preview"
         </div>
         <div>
           <label for="content"> Contenu du chapitre </label><br />
-          <textarea id="mytextarea" name="content"><?= nl2br(htmlspecialchars($post['content'])) ?></textarea>
+          <textarea id="mytextarea" name="content"><?= htmlspecialchars_decode(nl2br(html_entity_decode( $post['content']))) ?></textarea>
         </div>
         <div>
           <input type="submit" value="Valider" />
-          <a id="button" href='index.php?action=adminPage'/> Annuler </a>
+          <a id="button" href='index.php?action=adminPage' class="button"> Annuler </a>
         </div>
       </form>
     </div>
@@ -47,6 +36,11 @@ toolbar: "preview"
 
     ?>
   </div>
+</section>
+
+<script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=843ek0ws7rct4eii7488xofwwb06qptx990gi2hc0o62hr89"></script>
+
+<script type="text/javascript" src="public/js/tinyMCE.js" ></script>
 
 <?php $content = ob_get_clean(); ?>
 
