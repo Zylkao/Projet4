@@ -2,12 +2,9 @@
 
 <?php ob_start(); ?>
 
-
+<a href="index.php"><i class="fa fa-home"> Accueil</i></a><br />
 <section id="content">
-  <div id="menu-post">
-    <a href="index.php"><i class="fa fa-home"> Accueil</i></a><br />
     <?php include('menu.php');?>
-  </div>
   <div id="read-area">
     <div id="chapters">
       <h2>
@@ -33,7 +30,7 @@
             <textarea id="comment_content" name="comment_content"></textarea>
           </div>
           <div>
-            <input type="submit" />
+            <input id="valid" type="submit" />
           </div>
         </form>
       </div>
@@ -44,8 +41,10 @@
         while ($comment = $comments->fetch())
         {
           ?>
-          <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?></p>
-          <p><?= nl2br(htmlspecialchars($comment['comment_content'])) ?></p>
+          <div id="comments_list">
+            <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?></p>
+            <p><?= nl2br(htmlspecialchars($comment['comment_content'])) ?></p>
+          </div>
           <?php
         }
         ?>

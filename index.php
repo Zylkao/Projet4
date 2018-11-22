@@ -1,4 +1,7 @@
 <?php
+
+session_start();
+
 require('controller/frontend.php');
 require('controller/backend.php');
 
@@ -7,6 +10,7 @@ try {
         if ($_GET['action'] == 'welcome') {
             welcome();
         }
+        /* FRONTEND*/
         elseif ($_GET['action'] == 'post') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 post();
@@ -28,6 +32,31 @@ try {
                 throw new Exception('Aucun identifiant de billet envoyé');
             }
         }
+        elseif ($_GET['action'] == 'signUp'){
+              signUp();
+        }
+        elseif ($_GET['action'] == 'newUser') {
+              if (!empty($_POST['pseudo']) && !empty($_POST['email']) && !empty($_POST['password'])) {
+                  newUser($_GET['id'], $_POST['pseudo'], $_POST['email'], sha1($_POST['password']));
+              }
+              else {
+                      throw new Exception('Tous les champs ne sont pas remplis ! Inscription refusé');
+              }
+        }
+        elseif ($_GET['action'] == 'connexion') {
+          if (!empty($_POST['pseudo']) && !empty($_POST['password'])){
+            connexion($_POST['pseudo'], sha1($_POST['password']));
+          }
+          else{
+            throw new Exception('Connexion refusé');
+          }
+        }
+        elseif ($_GET['action'] == 'disconnect') {
+          $_SESSION = array();
+          session_destroy();
+          header('Location: index.php?action=welcome');
+        }
+        /* BACKEND*/
         elseif(isset($_GET['action'])){
           if ($_GET['action'] == 'adminPage'){
               adminPage();
@@ -84,7 +113,7 @@ try {
               throw new Exception('Accèes Admin Refusé');
           }
         }
-
+        /* INSCRIPTION ET CONNEXION*/
     }
     else {
         welcome();

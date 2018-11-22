@@ -14,7 +14,7 @@
       while ($data = $posts->fetch())
       {
       ?>
-      <li> <?= htmlspecialchars($data['chapter_title']) ?></a>
+      <li class='chapter_font'> <?= htmlspecialchars($data['chapter_title']) ?>
           <a href="index.php?action=adminPost&amp;id=<?= $data['id'] ?>" ><i class="fas fa-cog"></i></a>
           <a href="index.php?action=deletePost&amp;id=<?= $data['id'] ?>"><i class="fas fa-times"></i></a>
       </li>
@@ -32,10 +32,11 @@
     while ($comment = $comments->fetch())
     {
       ?>
-      <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?></p>
-      <p><?= nl2br(htmlspecialchars($comment['comment_content'])) ?></p>
-      <a href="index.php?action=deleteComment&amp;id=<?= $comment['id'] ?>"><i class="fas fa-times"></i></a>
-
+      <div id="comments_list">
+       <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?></p>
+       <p><?= nl2br(htmlspecialchars($comment['comment_content'])) ?></p>
+       <a href="index.php?action=deleteComment&amp;id=<?= $comment['id'] ?>"><i class="fas fa-times"> Supprimer</i></a>
+      </div>
       <?php
     }
 

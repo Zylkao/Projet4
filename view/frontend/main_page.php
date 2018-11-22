@@ -1,9 +1,13 @@
-<?php $title="Blog lecture"; ?>
+<?php $title="Blog lecture";?>
 
 <?php ob_start(); ?>
 
 <header>
-  <a href='index.php?action=adminPage'> <i class="fas fa-cogs">Administration</i></a>
+  <?php if(isset($_SESSION['role']) && $_SESSION['role'] === 'Admin'){?>
+    <a href='index.php?action=adminPage'> <i class="fas fa-cogs">Administration</i></a>
+  <?php } ?>
+<?php include('connexion.php')?>
+
 </header>
 
 <section id="content">
@@ -24,7 +28,6 @@ Pellentesque sit amet erat vel lorem molestie elementum nec non dolor. Donec rho
     </div>
   </div>
 </section>
-</body>
 
 <footer>
 </footer>

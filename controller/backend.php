@@ -2,6 +2,7 @@
 
 require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
+require_once('model/UserManager.php');
 
 function adminPage()
 {
@@ -29,6 +30,7 @@ function addContent(){
 
   require('view/backend/add_content.php');
 }
+
 function addPost($id,$chapter_title,$content){
 
   $postManager = new \zylkaôme\OC_Projet4\Model\PostManager();
@@ -75,4 +77,23 @@ function deleteComment($id)
   $dComment = $commentManager->deleteComments($id);
 
   header('Location: index.php?action=adminPage');
+}
+
+function userList()
+{
+  $userManager = new \zylkaôme\OC_Projet4\Model\UserManager();
+
+  $users = $userManager->getUsers();
+
+  require('view/backend/user_list.php');
+}
+
+function deleteUser($id)
+{
+  $userManager = new \zylkaôme\OC_Projet4\Model\UserManager();
+
+  $dUser = $userManager->deleteUsers($id);
+
+  header('Location: index.php?action=adminPage');
+
 }

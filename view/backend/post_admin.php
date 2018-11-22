@@ -28,9 +28,11 @@
     while ($comment = $comments->fetch())
     {
       ?>
-      <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?></p>
-      <p><?= nl2br(htmlspecialchars($comment['comment_content'])) ?></p>
-      <a href="index.php?action=deleteComment&amp;id=<?= $comment['id'] ?>"><i class="fas fa-times"></i></a>
+      <div id="comments_list">
+       <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?></p>
+       <p><?= nl2br(htmlspecialchars($comment['comment_content'])) ?></p>
+       <a href="index.php?action=deleteComment&amp;id=<?= $comment['id'] ?>"><i class="fas fa-times"> Supprimer</i></a>
+      </div>
       <?php
     }
 

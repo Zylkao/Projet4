@@ -2,6 +2,7 @@
 
 require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
+require_once('model/UserManager.php');
 
 function welcome()
 {
@@ -35,4 +36,63 @@ function addComment($postid, $author, $comment_content,$valid)
   else {
     header('Location: index.php?action=post&id=' . $postid);
   }
+}
+
+function signUp()
+{
+  require('view/frontend/sign_up.php');
+}
+
+function newUser($id,$pseudo,$email,$password)
+{
+  $userManager = new \zylkaôme\OC_Projet4\Model\UserManager();
+
+  $affectedLines = $userManager->addUser($id,$pseudo,$email,$password);
+
+  if ($affectedLines === false) {
+    throw new Exception('Impossible d\'ajouter l\' utilisateur !');
+  }
+  else {
+    header('Location: index.php?action=welcome');
+  }
+}
+
+
+function updateUser($id,$pseudo,$email,$password)
+{
+  $userManager = new \zylkaôme\OC_Projet4\Model\UserManager();
+
+  $affectedLines = $userManager->modifyUser($id,$pseudo,$email,$password);
+
+  if ($affectedLines === false) {
+    throw new Exception('Impossible d\'ajouter l\' utilisateur !');
+  }
+  else {
+    header('Location: index.php');
+  }
+
+  require('view/frontend/my_profile');
+}
+
+function connexion($pseudo,$password)
+{
+  $userManager = new \zylkaôme\OC_Projet4\Model\UserManager();
+
+  $affectedLines = $userManager->signIn($pseudo,$password);
+
+  if ($affectedLines === false) {
+    throw new Exception('Mauvais identifiant ou mot de passe');
+  }
+  else
+  {
+  $_SESSION['id'] = $affectedLines['id'];
+  $_SESSION['pseudo'] = $pseudo;
+  $_SESSION['role'] = $affectedLines['role'];
+  header('Location: index.php');
+  }
+}
+
+function disconnect()
+{
+  header('Location: index.php');
 }
