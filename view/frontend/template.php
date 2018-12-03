@@ -11,6 +11,14 @@
     </head>
 
     <body>
+      <header>
+        <a href="index.php" id="accueil_btn"> <i class="fas fa-home"> Accueil</i></a>
+      <?php include('connexion.php')?>
+
+      </header>
         <?= $content ?>
     </body>
+
+    <footer>
+    </footer>
 </html>

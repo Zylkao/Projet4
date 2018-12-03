@@ -2,7 +2,6 @@
 
 <?php ob_start(); ?>
 
-<a href="index.php"><i class="fa fa-home"> Accueil</i></a><br />
 <section id="content">
     <?php include('menu.php');?>
   <div id="read-area">
@@ -36,7 +35,7 @@
       </div>
 
 
-      <div id="read_comments">
+      <div id="read_comments_view">
         <?php
         while ($comment = $comments->fetch())
         {
@@ -53,9 +52,6 @@
   </div>
 </section>
 </body>
-
-<footer>
-</footer>
 
 
 

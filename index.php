@@ -48,7 +48,7 @@ try {
             connexion($_POST['pseudo'], sha1($_POST['password']));
           }
           else{
-            throw new Exception('Connexion refusé');
+            throw new Exception('Mauvais identifiant ou mot de passe');
           }
         }
         elseif ($_GET['action'] == 'disconnect') {

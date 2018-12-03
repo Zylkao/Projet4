@@ -2,14 +2,6 @@
 
 <?php ob_start(); ?>
 
-<header>
-  <?php if(isset($_SESSION['role']) && $_SESSION['role'] === 'Admin'){?>
-    <a href='index.php?action=adminPage'> <i class="fas fa-cogs">Administration</i></a>
-  <?php } ?>
-<?php include('connexion.php')?>
-
-</header>
-
 <section id="content">
   <?php include('menu.php');?>
   <div id="read-area">
@@ -28,9 +20,6 @@ Pellentesque sit amet erat vel lorem molestie elementum nec non dolor. Donec rho
     </div>
   </div>
 </section>
-
-<footer>
-</footer>
 
 <?php $content = ob_get_clean(); ?>
 

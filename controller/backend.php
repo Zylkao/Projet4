@@ -6,8 +6,8 @@ require_once('model/UserManager.php');
 
 function adminPage()
 {
-  $postManager = new \zylkaôme\OC_Projet4\Model\PostManager();
-  $commentManager = new \zylkaôme\OC_Projet4\Model\CommentManager();
+  $postManager = new \zylkaôme\Projet_OC\Projet4\Model\PostManager();
+  $commentManager = new \zylkaôme\Projet_OC\Projet4\Model\CommentManager();
 
   $posts = $postManager->getPosts();
   $comments = $commentManager->getAllComments();
@@ -17,8 +17,8 @@ function adminPage()
 
 function adminPost()
 {
-  $postManager = new \zylkaôme\OC_Projet4\Model\PostManager();
-  $commentManager = new \zylkaôme\OC_Projet4\Model\CommentManager();
+  $postManager = new \zylkaôme\Projet_OC\Projet4\Model\PostManager();
+  $commentManager = new \zylkaôme\Projet_OC\Projet4\Model\CommentManager();
 
   $post = $postManager->getPost($_GET['id']);
   $comments = $commentManager->getComments($_GET['id']);
@@ -33,7 +33,7 @@ function addContent(){
 
 function addPost($id,$chapter_title,$content){
 
-  $postManager = new \zylkaôme\OC_Projet4\Model\PostManager();
+  $postManager = new \zylkaôme\Projet_OC\Projet4\Model\PostManager();
 
   $affectedLines = $postManager->postContent($id,$chapter_title,$content);
 
@@ -47,7 +47,7 @@ function addPost($id,$chapter_title,$content){
 
 function modifyPost($id,$chapter_title,$content)
 {
-  $postManager = new \zylkaôme\OC_Projet4\Model\PostManager();
+  $postManager = new \zylkaôme\Projet_OC\Projet4\Model\PostManager();
 
   $affectedLines = $postManager->modifyContent($id,$chapter_title,$content);
 
@@ -61,8 +61,8 @@ function modifyPost($id,$chapter_title,$content)
 
 function deletePost($id)
 {
-  $postManager = new \zylkaôme\OC_Projet4\Model\PostManager();
-  $commentManager = new \zylkaôme\OC_Projet4\Model\CommentManager();
+  $postManager = new \zylkaôme\Projet_OC\Projet4\Model\PostManager();
+  $commentManager = new \zylkaôme\Projet_OC\Projet4\Model\CommentManager();
 
   $dpost = $postManager->deleteContent($id);
   $dComment = $commentManager->deleteComments($id);
@@ -72,7 +72,7 @@ function deletePost($id)
 
 function deleteComment($id)
 {
-  $commentManager = new \zylkaôme\OC_Projet4\Model\CommentManager();
+  $commentManager = new \zylkaôme\Projet_OC\Projet4\Model\CommentManager();
 
   $dComment = $commentManager->deleteComments($id);
 
@@ -81,7 +81,7 @@ function deleteComment($id)
 
 function userList()
 {
-  $userManager = new \zylkaôme\OC_Projet4\Model\UserManager();
+  $userManager = new \zylkaôme\Projet_OC\Projet4\Model\UserManager();
 
   $users = $userManager->getUsers();
 
@@ -90,7 +90,7 @@ function userList()
 
 function deleteUser($id)
 {
-  $userManager = new \zylkaôme\OC_Projet4\Model\UserManager();
+  $userManager = new \zylkaôme\Projet_OC\Projet4\Model\UserManager();
 
   $dUser = $userManager->deleteUsers($id);
 

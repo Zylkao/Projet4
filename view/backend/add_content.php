@@ -4,7 +4,6 @@
 
 <section id="content">
 
-
   <div id="read-area">
     <div id="chapters">
       <form action="index.php?action=addPost" method="post">
@@ -17,7 +16,7 @@
           <textarea id="mytextarea" name="content"></textarea>
         </div>
         <div>
-          <input type="submit" value="Valider" />
+          <input class="button" type="submit" value="Valider" />
           <a class="button" href='index.php?action=adminPage'/> Annuler </a>
         </div>
       </form>

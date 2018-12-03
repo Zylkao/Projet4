@@ -1,5 +1,5 @@
 <?php
-namespace zylkaôme\OC_Projet4\Model;
+namespace zylkaôme\Projet_OC\Projet4\model;
 
 class Manager
 {

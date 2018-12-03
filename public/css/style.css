@@ -1,5 +1,6 @@
 body{
-  background-image:url(../img/vintage-concrete.png);
+  /*background-image:url(../img/vintage-concrete.png);*/
+  background-color: #f8c291;
   overflow-x:hidden;
 }
 
@@ -9,6 +10,7 @@ body{
   appearance: button;
 
   position:relative;
+  background-color:#e55039;
   left:calc(50% - 60px);
   font-family: Georgia, serif;
   text-decoration: none;
@@ -34,8 +36,20 @@ header{
   width:15%;
   left: 80%;
   bottom:10px;
-  border: 1px solid black;
+  border-radius:3px;
+  box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, .2);
+  background-color: #f8c291;
   padding: 10px;
+}
+
+.fa-power-off{
+  color:#eb2f06;
+}
+
+#btn-menu{
+  display:flex;
+  flex-direction:column;
+  justify-content: space-around;
 }
 
 #content{
@@ -56,14 +70,19 @@ header{
   margin-top: 20px;
   margin-bottom: 20px;
   position:relative;
-  top:100px;
+  top:200px;
   left:10%;
+}
+
+.fa-bars{
+  visibility:hidden;
 }
 
 #menu,#menu_alt{
   width:15%;
   height:300px;
-  border: 1px solid black;
+  border-radius:3px;
+  box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, .2);
   background: rgba(255,255,255,0.5);
   font-family: 'Pinyon Script', cursive;
 }
@@ -72,6 +91,14 @@ header{
  width:100%;
  position:relative;
  bottom:200px;
+}
+
+.accueil_btn_alt{
+  display:none;
+}
+
+#dropdown-content{
+  margin-left:20px;
 }
 
 #menu-title{
@@ -83,8 +110,8 @@ header{
   font-size: 18px;
 }
 
-#menu-post{
-
+textarea{
+  resize : none;
 }
 
 a{
@@ -110,7 +137,8 @@ h2{
 
 #chapters{
   width:100%;
-  border:1px solid black;
+  border-radius:3px;
+  box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, .2);
   padding:10px 10px 10px 10px;
   background: rgba(255,255,255,0.5);
   display:flex;
@@ -136,9 +164,12 @@ h2{
 }
 
 #comments{
-  border:1px solid black;
+  width:100%;
+  border-radius:3px;
+  box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, .2);
   background: rgba(255,255,255,0.5);
-  margin: 5px;
+  margin-top: 5px;
+  padding-right:20px;
 }
 
 label,#author,#comment_content,#valid{
@@ -153,7 +184,8 @@ margin-left: 25px;
 #commentary{
   width:100%;
   height:460px;
-  border: 1px solid black;
+  border-radius:3px;
+  box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, .2);
   background: rgba(255,255,255,0.5);
   display:none;
 }
@@ -163,21 +195,23 @@ margin-left: 25px;
   height:500px;
 }
 
-#read_comments{
+#read_comments,#read_comments_view{
   display:flex;
   flex-direction:column;
   justify-content:space-between;
-  border:1px solid black;
+  border-radius:3px;
+  box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, .2);
   background: rgba(255,255,255,0.5);
-  width:70%;
+  width:80%;
   margin-top: 10px;
   margin-left:25px;
   margin-bottom:10px;
 }
 
 #comments_list{
-  border:1px solid black;
+  border-radius:3px;
   margin:5px;
+  box-shadow: 0px 0px 12px 1px rgba(0, 0, 0, .2);
 }
 
 .fa-times{
@@ -192,11 +226,225 @@ margin-left: 25px;
   color:black;
 }
 
+.fa-home{
+  margin-right: 20px;
+}
+
 footer{
   width:100%;
   height:250px;
   position:absolute;
-  margin-top:100px;
+  margin-top:200px;
   left:0;
   background: rgba(255,255,255,0.7);
+}
+
+@media (min-width:1px) and (max-width:425px){
+  header{
+    height:200px;
+  }
+
+  #menu{
+  display: inline;
+  position: fixed;
+  background: #f8c291;
+  height:30px;
+  border:none;
+  top: 0px;
+  width: 100%;
+  border-radius: 4px 0 4px 4px;
+  padding-top:10px;
+  z-index:10;
+  }
+
+  #menu-title{
+      display:none;
+  }
+
+  .accueil_btn_alt{
+    display:inline;
+    font-size:16px;
+    text-align:left;
+    font-style: bold;
+  }
+
+  #navbar{
+    width:100%;
+    display:flex;
+    flex-direction:row;
+    justify-content: center;
+    position:relative;
+    left:-15px;
+  }
+
+  #dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+  /* Dropdown Content (Hidden by Default) */
+  #dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #fad390;
+      width: 420px;
+      left:-160px;
+      padding:30px;
+      margin-left:-10px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+  }
+
+  /* Links inside the dropdown */
+  #dropdown-content  li a {
+      color: black;
+      padding: 12px 16px;
+      display: inline-block;
+  }
+
+  /* Change color of dropdown links on hover */
+  #dropdown-content  li a:hover {background-color: #f1f1f1}
+
+  /* Show the dropdown menu on hover */
+  #dropdown:hover #dropdown-content{
+      display: block;
+      cursor:pointer;
+  }
+
+  #admin_btn,#disconnect_btn{
+    font-size:16px;
+    text-align:left;
+    font-style: bold;
+  }
+
+
+  .fa-bars{
+    visibility:visible;
+  }
+
+  #connexion_area{
+    left:10px;
+    top:50px;
+    width:80%;
+  }
+
+  #read-area,#content-modify,#read_comments{
+    position:relative;
+    margin-top:20px;
+    margin-bottom:20px;
+    margin-left:-20px;
+    width:100%;
+  }
+
+  #read_comments_view{
+    width:100%;
+    margin-top:20px;
+    margin-bottom:20px;
+    margin-left:5px;
+  }
+}
+@media screen and (min-width:426px) and (max-width:1200px)
+{
+  header{
+    height:200px;
+  }
+
+  #menu{
+  display: inline;
+  position: fixed;
+  background: #f8c291;
+  height:30px;
+  border:none;
+  top: 0px;
+  width: 100%;
+  border-radius: 4px 0 4px 4px;
+  padding-top:10px;
+  z-index:10;
+  }
+
+  #menu-title{
+      display:none;
+  }
+
+  .accueil_btn_alt{
+    display:inline;
+    font-size:16px;
+    text-align:left;
+    font-style: bold;
+  }
+
+  #navbar{
+    width:100%;
+    display:flex;
+    flex-direction:row;
+    justify-content: flex-start;
+    position:relative;
+  }
+
+  #dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+  /* Dropdown Content (Hidden by Default) */
+  #dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #fad390;
+      width: 420px;
+      padding:30px;
+      margin-left:-10px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+  }
+
+  /* Links inside the dropdown */
+  #dropdown-content  li a {
+      color: black;
+      padding: 12px 16px;
+      display: inline-block;
+  }
+
+  /* Change color of dropdown links on hover */
+  #dropdown-content  li a:hover {background-color: #f1f1f1}
+
+  /* Show the dropdown menu on hover */
+  #dropdown:hover #dropdown-content{
+      display: block;
+      cursor:pointer;
+  }
+
+  #admin_btn,#disconnect_btn{
+    font-size:16px;
+    text-align:left;
+    font-style: bold;
+  }
+
+
+  .fa-bars{
+    visibility:visible;
+  }
+
+  #connexion_area{
+    top:20px;
+    position:relative;
+    margin-right:50px;
+    left: 75%;
+    width:20%;
+  }
+
+  #read-area,#content-modify,#read_comments{
+    position:relative;
+    margin-top:20px;
+    margin-bottom:20px;
+    margin-left:-20px;
+    width:100%;
+  }
+
+  #read_comments_view{
+    width:100%;
+    margin-top:20px;
+    margin-bottom:20px;
+    margin-left:5px;
+  }
 }

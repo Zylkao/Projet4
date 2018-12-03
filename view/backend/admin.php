@@ -2,29 +2,12 @@
 
 <?php ob_start(); ?>
 
-<a href="index.php"> <i class="fas fa-home"> Accueil</i></a>
+
 
 <body>
 <div id="content">
-  <div id="menu">
-    <h2 id="menu-title"> Administration </h2>
 
-    <ul>
-      <?php
-      while ($data = $posts->fetch())
-      {
-      ?>
-      <li class='chapter_font'> <?= htmlspecialchars($data['chapter_title']) ?>
-          <a href="index.php?action=adminPost&amp;id=<?= $data['id'] ?>" ><i class="fas fa-cog"></i></a>
-          <a href="index.php?action=deletePost&amp;id=<?= $data['id'] ?>"><i class="fas fa-times"></i></a>
-      </li>
-      <?php
-      }
-      $posts->closeCursor();
-      ?>
-    </ul>
-    <a href="index.php?action=addContent" class='button'> Ajout de Chapitre</a>
-  </div>
+  <?php include('menu_admin.php');?>
 
   <div id="read_comments">
     <h2> Derniers commentaires </h2>
@@ -44,12 +27,6 @@
   </div>
 </div>
 </body>
-
-<footer>
-</footer>
-
-
-
 
 <?php $content = ob_get_clean(); ?>
 

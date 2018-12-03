@@ -6,7 +6,7 @@ require_once('model/UserManager.php');
 
 function welcome()
 {
-    $postManager = new \zylkaôme\OC_Projet4\Model\PostManager();
+    $postManager = new \zylkaôme\Projet_OC\Projet4\Model\PostManager();
     $posts = $postManager->getPosts();
 
     require('view/frontend/main_page.php');
@@ -14,8 +14,8 @@ function welcome()
 
 function post()
 {
-  $postManager = new \zylkaôme\OC_Projet4\Model\PostManager();
-  $commentManager = new \zylkaôme\OC_Projet4\Model\CommentManager();
+  $postManager = new \zylkaôme\Projet_OC\Projet4\Model\PostManager();
+  $commentManager = new \zylkaôme\Projet_OC\Projet4\Model\CommentManager();
 
   $posts = $postManager->getPosts();
   $post = $postManager->getPost($_GET['id']);
@@ -26,7 +26,7 @@ function post()
 
 function addComment($postid, $author, $comment_content,$valid)
 {
-  $commentManager = new \zylkaôme\OC_Projet4\Model\CommentManager();
+  $commentManager = new \zylkaôme\Projet_OC\Projet4\Model\CommentManager();
 
   $affectedLines = $commentManager->postComments($postid, $author, $comment_content,$valid);
 
@@ -45,7 +45,7 @@ function signUp()
 
 function newUser($id,$pseudo,$email,$password)
 {
-  $userManager = new \zylkaôme\OC_Projet4\Model\UserManager();
+  $userManager = new \zylkaôme\Projet_OC\Projet4\Model\UserManager();
 
   $affectedLines = $userManager->addUser($id,$pseudo,$email,$password);
 
@@ -60,12 +60,12 @@ function newUser($id,$pseudo,$email,$password)
 
 function updateUser($id,$pseudo,$email,$password)
 {
-  $userManager = new \zylkaôme\OC_Projet4\Model\UserManager();
+  $userManager = new \zylkaôme\Projet_OC\Projet4\Model\UserManager();
 
   $affectedLines = $userManager->modifyUser($id,$pseudo,$email,$password);
 
   if ($affectedLines === false) {
-    throw new Exception('Impossible d\'ajouter l\' utilisateur !');
+    throw new Exception('Impossible de modifier l\' utilisateur !');
   }
   else {
     header('Location: index.php');
@@ -76,7 +76,7 @@ function updateUser($id,$pseudo,$email,$password)
 
 function connexion($pseudo,$password)
 {
-  $userManager = new \zylkaôme\OC_Projet4\Model\UserManager();
+  $userManager = new \zylkaôme\Projet_OC\Projet4\Model\UserManager();
 
   $affectedLines = $userManager->signIn($pseudo,$password);
 

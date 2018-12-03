@@ -1,21 +1,22 @@
-<?php $title="Modification"; ?>
+&<?php $title="Modification"; ?>
 
 <?php ob_start(); ?>
 
 <section id="content-modify">
+
   <div id="read-area">
     <div id="chapters">
       <form action="index.php?action=modifyPost&amp;id=<?= $post['id'] ?>" method="post">
         <div>
           <label for="chapter_title"> Titre du chapitre </label><br />
-          <input type="text" name="chapter_title" value=<?= htmlspecialchars($post['chapter_title']) ?> />
+          <input type="text" name="chapter_title" value=<?= nl2br(htmlspecialchars($post['chapter_title'])) ?> />
         </div>
         <div>
           <label for="content"> Contenu du chapitre </label><br />
           <textarea id="mytextarea" name="content"><?= htmlspecialchars_decode(nl2br(html_entity_decode( $post['content']))) ?></textarea>
         </div>
         <div>
-          <input type="submit" value="Valider" />
+          <input class="button" type="submit" value="Valider" />
           <a id="button" href='index.php?action=adminPage' class="button"> Annuler </a>
         </div>
       </form>

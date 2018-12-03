@@ -1,5 +1,5 @@
 <?php
-namespace zylkaôme\OC_Projet4\model;
+namespace zylkaôme\Projet_OC\Projet4\model;
 
 require_once("model/Manager.php");
 
