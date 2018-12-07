@@ -1,4 +1,4 @@
-&<?php $title="Modification"; ?>
+<?php $title="Modification"; ?>
 
 <?php ob_start(); ?>
 
@@ -9,7 +9,7 @@
       <form action="index.php?action=modifyPost&amp;id=<?= $post['id'] ?>" method="post">
         <div>
           <label for="chapter_title"> Titre du chapitre </label><br />
-          <input type="text" name="chapter_title" value=<?= nl2br(htmlspecialchars($post['chapter_title'])) ?> />
+          <input type="text" name="chapter_title" value=<?= htmlspecialchars($post['chapter_title']) ?> />
         </div>
         <div>
           <label for="content"> Contenu du chapitre </label><br />
@@ -32,7 +32,7 @@
       <div id="comments_list">
        <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?></p>
        <p><?= nl2br(htmlspecialchars($comment['comment_content'])) ?></p>
-       <a href="index.php?action=deleteComment&amp;id=<?= $comment['id'] ?>"><i class="fas fa-times"> Supprimer</i></a>
+       <a href="index.php?action=deleteComment&amp;id=<?= $comment['commentid'] ?>"><i class="fas fa-times"> Supprimer</i></a>
       </div>
       <?php
     }

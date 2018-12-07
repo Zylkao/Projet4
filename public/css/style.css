@@ -218,6 +218,15 @@ margin-left: 25px;
   color:red;
 }
 
+.fa-check{
+  color:green;
+  margin-left:10px;
+}
+
+.fa-exclamation-triangle{
+  color:orange;
+}
+
 .fa-cog{
   color:orange;
 }

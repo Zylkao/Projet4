@@ -43,6 +43,11 @@
           <div id="comments_list">
             <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?></p>
             <p><?= nl2br(htmlspecialchars($comment['comment_content'])) ?></p>
+            <a href="index.php?action=signalComment&amp;id=<?= $comment['commentid'] ?>"><i class="fas fa-exclamation-triangle">Signaler</i></a>
+            <form method="POST" action="index.php?action=signalComment&amp;id=<?= $comment['commentid'] ?>">
+              <input type="hidden" value="<?= $comment['commentid'] ?>" name="commentid" />
+              <button type="submit">Signaler</button>
+            </form>
           </div>
           <?php
         }

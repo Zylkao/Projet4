@@ -24,11 +24,11 @@ function post()
   require('view/frontend/postView.php');
 }
 
-function addComment($postid, $author, $comment_content,$valid)
+function addComment($postid, $author, $comment_content)
 {
   $commentManager = new \zylkaôme\Projet_OC\Projet4\Model\CommentManager();
 
-  $affectedLines = $commentManager->postComments($postid, $author, $comment_content,$valid);
+  $affectedLines = $commentManager->postComments($postid, $author, $comment_content);
 
   if ($affectedLines === false) {
     throw new Exception('Impossible d\'ajouter le commentaire !');
@@ -81,7 +81,8 @@ function connexion($pseudo,$password)
   $affectedLines = $userManager->signIn($pseudo,$password);
 
   if ($affectedLines === false) {
-    throw new Exception('Mauvais identifiant ou mot de passe');
+    $_SESSION['error'] = 1;
+    header("Location: index.php");
   }
   else
   {

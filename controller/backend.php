@@ -65,18 +65,36 @@ function deletePost($id)
   $commentManager = new \zylkaôme\Projet_OC\Projet4\Model\CommentManager();
 
   $dpost = $postManager->deleteContent($id);
-  $dComment = $commentManager->deleteComments($id);
+  $dComment = $commentManager->deleteComments($commentid);
 
   header('Location: index.php?action=adminPage');
 }
 
-function deleteComment($id)
+function deleteComment($commentid)
 {
   $commentManager = new \zylkaôme\Projet_OC\Projet4\Model\CommentManager();
 
-  $dComment = $commentManager->deleteComments($id);
+  $dComment = $commentManager->deleteComments($commentid);
 
   header('Location: index.php?action=adminPage');
+}
+
+function validateComment($commentid)
+{
+  $commentManager = new \zylkaôme\Projet_OC\Projet4\Model\CommentManager();
+
+  $vComment = $commentManager->validateComments($commentid);
+
+  header('Location: index.php?action=adminPage');
+}
+
+function signalComment($commentid)
+{
+  $commentManager = new \zylkaôme\Projet_OC\Projet4\Model\CommentManager();
+
+  $sComment = $commentManager->signalComments($commentid);
+
+  header('Location: index.php?');
 }
 
 function userList()

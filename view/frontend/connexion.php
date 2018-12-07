@@ -12,8 +12,7 @@ if(isset($_SESSION['id']))
     <?php } ?>
     <a href='index.php?action=disconnect' id="disconnect_btn"> <i class="fas fa-power-off"> Déconnexion </i></a>
   </div>
-<?php
-}
+<?php }
 else
 {
 ?>
@@ -28,7 +27,13 @@ else
           <input type="submit" class="button" value="Connexion" />
           <a class="button" href='index.php?action=signUp'/> Inscription </a>
         </form>
-        <?php $erreur; ?>
+        <?php
+         if (isset($_SESSION['error'])){
+              echo "<span style='color:red;'>Mauvais identifiant ou mot de passe</span>";
+              unset($_SESSION['error']);
+          }
+
+        ?>
       </div>
 <?php
 };

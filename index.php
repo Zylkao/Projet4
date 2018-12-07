@@ -48,7 +48,7 @@ try {
             connexion($_POST['pseudo'], sha1($_POST['password']));
           }
           else{
-            throw new Exception('Mauvais identifiant ou mot de passe');
+            header('Location: index.php');
           }
         }
         elseif ($_GET['action'] == 'disconnect') {
@@ -109,11 +109,26 @@ try {
                 throw new Exception ('Suppression de commentaire refusé');
               }
           }
+          elseif ($_GET['action'] == 'validateComment') {
+              if (isset($_GET['id']) && $_GET['id'] > 0) {
+                validateComment($_GET['id']);
+              }
+              else {
+                throw new Exception ('Validation de commentaire refusé');
+              }
+          }
+          elseif ($_GET['action'] == 'signalComment') {
+              if (isset($_GET['id']) && $_GET['id'] > 0) {
+                signalComment($_GET['id']);
+              }
+              else {
+                throw new Exception ('Signalement de commentaire refusé');
+              }
+          }
           else {
               throw new Exception('Accèes Admin Refusé');
           }
         }
-        /* INSCRIPTION ET CONNEXION*/
     }
     else {
         welcome();
